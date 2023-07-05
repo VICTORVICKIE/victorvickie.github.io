@@ -9,7 +9,8 @@
         "preview": "vite preview",
         "check": "svelte-check --tsconfig ./tsconfig.json",
         "lint": "prettier --plugin-search-dir . --check . && eslint .",
-        "format": "prettier --plugin-search-dir . --write ."
+        "format": "prettier --plugin-search-dir . --write .",
+        "deploy": "npx gh-pages -d dist"
     },
     "devDependencies": {
         "@sveltejs/vite-plugin-svelte": "^2.0.4",
@@ -22,6 +23,7 @@
         "eslint": "^8.28.0",
         "eslint-config-prettier": "^8.5.0",
         "eslint-plugin-svelte3": "^4.0.0",
+        "gh-pages": "^5.0.0",
         "iconify-icon": "^1.0.8",
         "postcss": "^8.4.24",
         "prettier": "^2.8.3",
