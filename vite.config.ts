@@ -4,7 +4,7 @@ import { defineConfig } from 'vite';
 import wasmPack from 'vite-plugin-wasm-pack';
 
 export default defineConfig({
-    base: '/victorvickie-dev/',
+    base: '/',
     plugins: [svelte(), wasmPack('./minimax')],
     resolve: {
         alias: {
