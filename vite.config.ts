@@ -4,10 +4,8 @@ import { defineConfig } from 'vite';
 import wasmPack from 'vite-plugin-wasm-pack';
 
 export default defineConfig({
+    base: '/victorvickie-dev/',
     plugins: [svelte(), wasmPack('./minimax')],
-    build: {
-        outDir: './docs'
-    },
     resolve: {
         alias: {
             '$lib': path.resolve('./src/lib')
