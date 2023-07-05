@@ -1,0 +1,17 @@
+{
+  "name": "minimax",
+  "collaborators": [
+    "VIGNESH KUMAR <45727291+VICTORVICKIE@users.noreply.github.com>"
+  ],
+  "version": "0.2.2",
+  "files": [
+    "minimax_bg.wasm",
+    "minimax.js",
+    "minimax.d.ts"
+  ],
+  "module": "minimax.js",
+  "types": "minimax.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}
