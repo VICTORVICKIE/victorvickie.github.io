@@ -3,7 +3,7 @@
     import { TaskIcon } from '$lib/components';
 </script>
 
-<footer class="fixed bottom-0 z-10 h-16 w-screen">
+<footer class="fixed bottom-0 z-[10000] h-16 w-screen">
     <!-- Taskbar -->
     <nav class="flex h-16 items-center justify-evenly border bg-gradient-to-r from-base-300 via-base-200 to-base-300 text-base-content">
         <!-- Taskbar Icons -->

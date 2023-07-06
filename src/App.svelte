@@ -2,6 +2,7 @@
     import { Apps, app_state } from '$lib';
     import { TaskBar, Window } from '$lib/components';
     import Windows from '$lib/windows';
+    import { onMount } from 'svelte';
     function open_game() {
         if ($app_state['Game'] === 'minimize') {
             $app_state['Game'] = 'restore';
@@ -9,6 +10,8 @@
             $app_state['Game'] = 'open';
         }
     }
+
+    onMount(() => ($app_state['Profile'] = 'open'));
 </script>
 
 <section>

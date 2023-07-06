@@ -1,3 +1,7 @@
+<script lang="ts" context="module">
+    let z = 10;
+</script>
+
 <script lang="ts">
     import { app_state } from '$lib';
     import { IconButton } from '$lib/components';
@@ -25,7 +29,7 @@
     function open(): void {
         pos = 'right-0 top-0 md:right-1/3 md:top-1/4';
         window.style.transform = restore_pos;
-        size = 'h-full w-full md:h-1/2 md:w-1/3';
+        size = 'h-full w-full md:h-2/3 md:w-2/3 lg:h-2/3 lg:w-1/3';
         restore_pos = '';
     }
 
@@ -40,14 +44,14 @@
         pos = 'right-0 top-0';
         window.style.width = '';
         window.style.height = '';
-        size = 'h-full w-full md:h-full md:w-full';
+        size = 'h-full w-full';
     }
 
     function restore(): void {
         maximized = false;
         pos = 'right-[5%] top-[15%] md:right-1/3 md:top-1/4';
         window.style.transform = restore_pos;
-        size = 'h-4/6 w-11/12 md:h-1/2 md:w-1/3';
+        size = 'h-full w-full md:h-2/3 md:w-2/3 lg:h-2/3 lg:w-1/3';
     }
 
     function minimize(): void {
@@ -60,14 +64,14 @@
     $: handle = `${target}-Handle`;
     onMount(open);
     $: if ($app_state[target] === 'restore') restore();
+
+    function focus() {
+        window.style.zIndex = `${z}`;
+        z += 1;
+    }
 </script>
 
-<!-- svelte-ignore a11y-click-events-have-key-events -->
-<div
-    on:click={() => window.style.zIndex = "10"}
-    bind:this={window}
-    class="{target} absolute grid grid-rows-[3rem_1fr] overflow-hidden border bg-base-200 {size} {pos}"
->
+<div on:mousedown={focus} bind:this={window} class="{target} absolute grid grid-rows-[3rem_1fr] overflow-hidden border bg-base-200 {size} {pos}">
     <div class=" grid w-full grid-cols-2 border bg-base-300">
         <div class="ml-2 {handle} flex items-center justify-start">{target}</div>
         <div class="flex items-center justify-end">
@@ -80,7 +84,7 @@
             <IconButton icon="codicon:chrome-close" color="text-error" on:click={close} />
         </div>
     </div>
-    <div class="overflow-auto p-4">
+    <div class="flex overflow-auto p-4">
         <slot />
     </div>
 </div>

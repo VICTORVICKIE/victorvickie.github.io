@@ -48,7 +48,7 @@
     }
 </script>
 
-<div class="grid min-h-full grid-cols-1 gap-8">
+<div class="grid min-h-full w-full grid-cols-1 gap-8">
     <div class="flex items-center justify-between px-4">
         <select class="select select-xs w-28 max-w-xs">
             <option disabled selected>Difficulty</option>
