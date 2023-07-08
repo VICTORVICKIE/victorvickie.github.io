@@ -16,7 +16,7 @@
 
 <section>
     <main>
-        <div class="relative h-[calc(100dvh-4rem)] w-full bg-[url('/wallpaper.jpg')] bg-cover bg-center">
+        <div class="relative h-[calc(100dvh-4rem)] w-full bg-[url('/neo-wallpaper.png')] bg-bottom bg-no-repeat">
             {#each Apps as app}
                 {#if $app_state[app] !== 'close'}
                     <Window target={app}><svelte:component this={Windows.get(app)} /></Window>

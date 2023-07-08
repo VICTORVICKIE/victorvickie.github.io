@@ -71,7 +71,11 @@
     }
 </script>
 
-<div on:mousedown={focus} bind:this={window} class="{target} absolute grid grid-rows-[3rem_1fr] overflow-hidden border bg-base-200 {size} {pos}">
+<div
+    on:mousedown={focus}
+    bind:this={window}
+    class="{target} absolute grid grid-rows-[3rem_1fr] overflow-hidden border bg-base-200 bg-[url('/bg.png')] {size} {pos}"
+>
     <div class=" grid w-full grid-cols-2 border bg-base-300">
         <div class="ml-2 {handle} flex items-center justify-start">{target}</div>
         <div class="flex items-center justify-end">
