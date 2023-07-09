@@ -14,7 +14,7 @@
 
 <div class="indicator">
     <span class:hidden={$app_state[app] === 'close'} class="badge-xxs badge badge-accent indicator-start indicator-item" />
-    <IconButton icon={AppIcon[app]} on:click={open_app} />
+    <IconButton aria_label="Open {app}" icon={AppIcon[app]} on:click={open_app} />
 </div>
 
 <style>

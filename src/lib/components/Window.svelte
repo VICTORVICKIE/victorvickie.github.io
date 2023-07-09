@@ -27,6 +27,7 @@
     }
 
     function open(): void {
+        focus();
         pos = 'right-0 top-0 md:right-1/3 md:top-1/4';
         window.style.transform = restore_pos;
         size = 'h-full w-full md:h-2/3 md:w-2/3 lg:h-2/3 lg:w-1/3';
@@ -38,6 +39,7 @@
     }
 
     function maximize(): void {
+        focus();
         maximized = true;
         restore_pos = window.style.transform;
         window.style.transform = '';
@@ -48,6 +50,7 @@
     }
 
     function restore(): void {
+        focus();
         maximized = false;
         pos = 'right-[5%] top-[15%] md:right-1/3 md:top-1/4';
         window.style.transform = restore_pos;
@@ -71,21 +74,17 @@
     }
 </script>
 
-<div
-    on:mousedown={focus}
-    bind:this={window}
-    class="{target} absolute grid grid-rows-[3rem_1fr] overflow-hidden border bg-base-200 bg-[url('/bg.png')] {size} {pos}"
->
+<div on:mousedown={focus} bind:this={window} class="{target} absolute grid grid-rows-[3rem_1fr] overflow-hidden border bg-base-200 {size} {pos}">
     <div class=" grid w-full grid-cols-2 border bg-base-300">
         <div class="ml-2 {handle} flex items-center justify-start">{target}</div>
         <div class="flex items-center justify-end">
-            <IconButton icon="codicon:chrome-minimize" color="text-warning" on:click={minimize} />
+            <IconButton aria_label="Minimize {target}" icon="codicon:chrome-minimize" color="text-warning" on:click={minimize} />
             {#if maximized}
-                <IconButton icon="codicon:chrome-restore" color="text-success" on:click={restore} />
+                <IconButton aria_label="Restore {target}" icon="codicon:chrome-restore" color="text-success" on:click={restore} />
             {:else}
-                <IconButton icon="codicon:chrome-maximize" color="text-success" on:click={maximize} />
+                <IconButton aria_label="Maximize {target}" icon="codicon:chrome-maximize" color="text-success" on:click={maximize} />
             {/if}
-            <IconButton icon="codicon:chrome-close" color="text-error" on:click={close} />
+            <IconButton aria_label="Close {target}" icon="codicon:chrome-close" color="text-error" on:click={close} />
         </div>
     </div>
     <div class="flex overflow-auto p-4">

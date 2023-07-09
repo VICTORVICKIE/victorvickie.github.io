@@ -1,4 +1,4 @@
-import { writable } from 'svelte/store';
+import { derived, writable } from 'svelte/store';
 
 export const Apps = ['Feats', 'Skill', 'Profile', 'Project', 'Service', 'Game'] as const;
 

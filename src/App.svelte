@@ -22,7 +22,7 @@
                     <Window target={app}><svelte:component this={Windows.get(app)} /></Window>
                 {/if}
             {/each}
-            <button on:click={open_game} class="absolute bottom-6 right-5">
+            <button on:click={open_game} class="absolute bottom-6 right-5 z-[10000]">
                 <img class="h-6 w-6" src="/ezic.png" alt="EZIC" />
             </button>
         </div>
